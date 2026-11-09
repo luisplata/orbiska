@@ -30,11 +30,11 @@ jobs:
           Get-ChildItem -Path build -Recurse -Directory -Filter "*BackUpThisFolder*" | Remove-Item -Recurse -Force
       - name: Package WebGL zip
         shell: pwsh
-        run: Compress-Archive -Path build/WebGL/* -DestinationPath MissileCommand1980-webgl.zip
+        run: Compress-Archive -Path build/WebGL/* -DestinationPath Orbiska-webgl.zip
       - uses: actions/upload-artifact@v4
         with:
           name: webgl-build
-          path: MissileCommand1980-webgl.zip
+          path: Orbiska-webgl.zip
           retention-days: 1
 
   build-android:
@@ -54,7 +54,7 @@ jobs:
       - name: Normalize APK
         run: |
           mkdir -p apk-out
-          cp "$(find build/Android -name '*.apk' | head -1)" apk-out/MissileCommand1980.apk
+          cp "$(find build/Android -name '*.apk' | head -1)" apk-out/Orbiska.apk
       - uses: actions/upload-artifact@v4
         with:
           name: android-build
@@ -72,8 +72,8 @@ jobs:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: webgl
           ITCH_USER: peryloth
-          ITCH_GAME: missilecommand1980
-          PACKAGE: webgl-build/MissileCommand1980-webgl.zip
+          ITCH_GAME: orbiska
+          PACKAGE: webgl-build/Orbiska-webgl.zip
 
       - name: Deploy Android
         uses: yeslayla/butler-publish-itchio-action@master
@@ -81,5 +81,5 @@ jobs:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: android
           ITCH_USER: peryloth
-          ITCH_GAME: missilecommand1980
-          PACKAGE: android-build/MissileCommand1980.apk
+          ITCH_GAME: orbiska
+          PACKAGE: android-build/Orbiska.apk
