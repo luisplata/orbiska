@@ -76,3 +76,6 @@ skills-lock.json
 
 # Android keystores (CI decodes into .github/release.keystore)
 *.keystore
+
+# JetBrains Rider project folder (regenerated locally, never commit)
+.idea/

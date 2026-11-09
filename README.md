@@ -30,7 +30,7 @@ First release under the Orbiska name. Same game, new identity and a new Android 
 
 ## Build
 
-Unity `6000.3.10f1`. Targets WebGL (itch.io) and Android (AAB for Google Play, APK for itch.io). Desktop/mobile builds are produced by the GitHub Actions workflows in `.github/workflows/`.
+Unity `6000.3.10f1`. Targets WebGL (itch.io) and Android (AAB for Google Play, APK for itch.io). WebGL and Android builds are produced by the GitHub Actions workflows in `.github/workflows/`; there is no desktop target.
 
 ## License
 
