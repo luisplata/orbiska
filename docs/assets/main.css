@@ -1,4 +1,4 @@
-/* Missile Command 1980 — legal pages stylesheet (basic arcade theme) */
+/* Orbiska — legal pages stylesheet */
 :root {
   --bg: #0a0e14;
   --panel: #141a24;
@@ -62,15 +62,6 @@ main {
 .card li { margin: 0.3rem 0; }
 
 .card .meta { color: var(--muted); font-size: 0.9rem; }
-
-.tribute {
-  margin-top: 1.5rem;
-  padding: 0.75rem 1rem;
-  border-left: 3px solid var(--danger);
-  background: rgba(232, 93, 74, 0.08);
-  color: var(--muted);
-  font-size: 0.9rem;
-}
 
 nav.links {
   display: flex;
