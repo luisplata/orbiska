@@ -20,6 +20,8 @@ Listo para pegar en Play Console. Lo único que falta son los binarios de arte (
 
 ## Listing
 
+Nota de medición: los números en *caracteres* son el texto que se pega en Play Console, contado con Python (`len()` sobre el texto, sin saltos de línea finales). Los números en *bytes* son los que produce el gate del spec (`awk` + `wc -c`), que incluye la línea en blanco que rodea cada sección (por eso suma ~4 bytes). Mismo texto, dos unidades: Play limita por caracteres, así que los caracteres son el número que manda.
+
 ### Título
 
 Title (EN): Orbiska - Missile Defense
@@ -36,7 +38,7 @@ Short (EN): Hold to fire interceptors. Keep six cities alive through five waves.
 Short (ES): Mantén pulsado para disparar y protege seis ciudades durante cinco oleadas.
 - caracteres: 75/80
 
-## Full description (EN) — 1444/4000 caracteres
+## Full description (EN) — 1444/4000 caracteres (1448 bytes, gate `wc -c`)
 
 Orbiska is an arcade missile-defense game. Six cities sit under your protection, three interceptor batteries stand ready, and the sky fills with incoming missiles.
 
@@ -70,7 +72,7 @@ BUILT TO BE SIMPLE
 Orbiska is a short, focused arcade game: manage your ammo, read the sky, and keep one more city alive.
 
 
-## Full description (ES) — 1519/4000 caracteres
+## Full description (ES) — 1519/4000 caracteres (1546 bytes, gate `wc -c`)
 
 Orbiska es un juego arcade de defensa antimisil. Seis ciudades bajo tu protección, tres baterías de interceptores y un cielo que se llena de misiles.
 
@@ -104,7 +106,7 @@ SIN COMPLICACIONES
 Orbiska es un arcade breve y directo: administra la munición, lee el cielo y salva una ciudad más.
 
 
-## What's new (EN) — 346/500 caracteres
+## What's new (EN) — 346/500 caracteres (350 bytes, gate `wc -c`)
 
 First release as Orbiska.
 
@@ -131,6 +133,17 @@ Estado: **PENDIENTE — WU4 (BLOCKED-USER)**. Las rutas y especificaciones queda
 | Captura 6 | `PlayStore/assets/screenshots/shot-6.png` | 1080×1920 | PENDIENTE |
 
 Reglas de Play: mínimo 4 capturas de teléfono, cada lado entre 320 y 3840 px, proporción máxima 2:1, PNG o JPEG. Los archivos de acá son 1080×1920 (9:16), así que cumplen.
+
+Rutas de imagen que espera este kit (no se publican: `PlayStore/` es copia de trabajo):
+
+| Uso | Ruta esperada | Estado |
+|---|---|---|
+| Icono Play (512²) | `PlayStore/assets/icon-512.png` | PENDIENTE WU4 |
+| Feature graphic | `PlayStore/assets/feature-1024x500.png` | PENDIENTE WU4 |
+| Capturas Play | `PlayStore/assets/screenshots/shot-1..6.png` | PENDIENTE WU4 |
+| Icono del sitio (GitHub Pages) | `docs/Images/Icon.png` | EXISTE (150×151, se reemplaza en WU4) |
+
+Las tres capturas viejas que seguían sirviéndose desde Pages sin estar enlazadas se eliminaron del repo en `eb6ef05` (no las referenciaba ninguna página; los nombres quedan en el historial de git, no acá). Hoy `docs/Images/` contiene únicamente `Icon.png`, que es el que usa `docs/index.html`.
 
 ### Capturas y textos (≤140 caracteres cada uno)
 
