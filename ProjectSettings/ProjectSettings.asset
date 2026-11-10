@@ -270,8 +270,8 @@ PlayerSettings:
   AndroidAllowedArchitectures: -1
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: E:/Bellseboss/Keystores/Orbiska/bellseboss.keystore
-  AndroidKeyaliasName: misilecommand
+  AndroidKeystoreName: E:/Bellseboss/Keystores/Orbiska/Orbiska.keystore
+  AndroidKeyaliasName: orbiska
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidEnableArm64MTE: 0
   AndroidBuildApkPerCpuArchitecture: 0
