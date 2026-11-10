@@ -1,6 +1,6 @@
 # Orbiska — Kit de Play Store (ES + EN)
 
-Listo para pegar en Play Console. Lo único que falta son los binarios de arte (WU4, BLOCKED-USER) y la creación de la app (WU7).
+Listo para pegar en Play Console. Las 6 capturas ya están generadas desde el build real; faltan el icono, el feature graphic y la portada de itch (WU4, BLOCKED-USER) y la creación de la app (WU7).
 
 ## Identidad de la app
 
@@ -119,20 +119,30 @@ First release as Orbiska.
 
 ## Gráficos requeridos
 
-Estado: **PENDIENTE — WU4 (BLOCKED-USER)**. Las rutas y especificaciones quedan fijadas acá.
+Estado: **PARCIAL — las 6 capturas de teléfono ya existen (1920×1080, generadas del build real). El icono, el feature graphic y la portada de itch siguen PENDIENTES (WU4, BLOCKED-USER).**
 
 | Asset | Archivo | Especificación | Estado |
 |---|---|---|---|
 | Icono | `PlayStore/assets/icon-512.png` | PNG 512×512, 32 bits con alpha, ≤1024 KB | PENDIENTE |
 | Feature graphic | `PlayStore/assets/feature-1024x500.png` | 1024×500, sin alpha (24 bits), texto dentro del 80% central | PENDIENTE |
-| Captura 1 | `PlayStore/assets/screenshots/shot-1.png` | 1080×1920 | PENDIENTE |
-| Captura 2 | `PlayStore/assets/screenshots/shot-2.png` | 1080×1920 | PENDIENTE |
-| Captura 3 | `PlayStore/assets/screenshots/shot-3.png` | 1080×1920 | PENDIENTE |
-| Captura 4 | `PlayStore/assets/screenshots/shot-4.png` | 1080×1920 | PENDIENTE |
-| Captura 5 | `PlayStore/assets/screenshots/shot-5.png` | 1080×1920 | PENDIENTE |
-| Captura 6 | `PlayStore/assets/screenshots/shot-6.png` | 1080×1920 | PENDIENTE |
+| Captura 1 | `PlayStore/assets/screenshots/shot-1.png` | 1920×1080 | HECHO (1920×1080) |
+| Captura 2 | `PlayStore/assets/screenshots/shot-2.png` | 1920×1080 | HECHO (1920×1080) |
+| Captura 3 | `PlayStore/assets/screenshots/shot-3.png` | 1920×1080 | HECHO (1920×1080) |
+| Captura 4 | `PlayStore/assets/screenshots/shot-4.png` | 1920×1080 | HECHO (1920×1080) |
+| Captura 5 | `PlayStore/assets/screenshots/shot-5.png` | 1920×1080 | HECHO (1920×1080) |
+| Captura 6 | `PlayStore/assets/screenshots/shot-6.png` | 1920×1080 | HECHO (1920×1080) |
 
-Reglas de Play: mínimo 4 capturas de teléfono, cada lado entre 320 y 3840 px, proporción máxima 2:1, PNG o JPEG. Los archivos de acá son 1080×1920 (9:16), así que cumplen.
+Reglas de Play: mínimo 4 capturas de teléfono, cada lado entre 320 y 3840 px, proporción máxima 2:1, PNG o JPEG. Los archivos de acá son 1920×1080 (16:9, proporción 1.78), así que cumplen.
+
+**Por qué 1920×1080 y no 1080×1920**: el juego es horizontal. La cámara es ortográfica con `size = 5` (alto visible fijo de 10 unidades) y el campo jugable mide 15 unidades de ancho (ciudades de `x = -7.50` a `x = +7.39`). En 16:9 se ven 17.8 unidades de ancho; en 9:16 solo 5.6, o sea que se perdería ~63% del campo (3 o 4 de las 6 ciudades) y no se ganaría nada de alto. Unas capturas 1080×1920 de este build serían recortes rotos, no capturas. El rediseño portait del juego, si se quiere, es un cambio aparte con su propio spec.
+
+**Nota de honestidad**: las 6 imágenes son frames del build, capturados con `Tools/Orbiska/Capture Store Screenshots` (`Assets/Editor/OrbiskaStoreCapture.cs`). No hay UI generada ni compuesta. El harness juega una partida real y usa solo la API pública del juego (disparar, completar oleada, elegir carta, matar ciudad).
+
+**Defectos previos visibles en las capturas** (no son de la captura; son del build actual):
+- El marcador de puntos del HUD queda cortado contra el borde superior izquierdo (`Panel (1)` con ancla `(0,1)` y pivote `(0.5,0.5)`), así que se lee "0" o "25" a medias, y la etiqueta "Puntos" del pie no tiene valor al lado.
+- Los trails de misil se renderizaban magenta porque el `LineRenderer` de `Bullet.prefab` y `BulletPlayer.prefab` no tenía material (`m_Materials: - {fileID: 0}`, el color de error de Unity). Corregido en este mismo cambio con `Assets/Resource/Materials/TrailLine.mat` (`Universal Render Pipeline/2D/Sprite-Unlit-Default`); el color del gradiente del prefab es blanco, así que los trails ahora son blancos.
+
+Ambos puntos quedan registrados para que nadie los confunda con un fallo de las capturas.
 
 Rutas de imagen que espera este kit (no se publican: `PlayStore/` es copia de trabajo):
 
@@ -140,7 +150,7 @@ Rutas de imagen que espera este kit (no se publican: `PlayStore/` es copia de tr
 |---|---|---|
 | Icono Play (512²) | `PlayStore/assets/icon-512.png` | PENDIENTE WU4 |
 | Feature graphic | `PlayStore/assets/feature-1024x500.png` | PENDIENTE WU4 |
-| Capturas Play | `PlayStore/assets/screenshots/shot-1..6.png` | PENDIENTE WU4 |
+| Capturas Play | `PlayStore/assets/screenshots/shot-1..6.png` | HECHO (1920×1080, 6 de 6) |
 | Icono del sitio (GitHub Pages) | `docs/Images/Icon.png` | EXISTE (150×151, se reemplaza en WU4) |
 
 Las tres capturas viejas que seguían sirviéndose desde Pages sin estar enlazadas se eliminaron del repo en `eb6ef05` (no las referenciaba ninguna página; los nombres quedan en el historial de git, no acá). Hoy `docs/Images/` contiene únicamente `Icon.png`, que es el que usa `docs/index.html`.
